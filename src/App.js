@@ -1,13 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>Neotour</h1>
-    </div>
+    <>
+     <div>
+      <Routes>
+        <Route path="/" element={<Main/>}/>
+        <Route path="/:id" element/>
+      </Routes>
+     </div>
+    </>
   );
 }
 
 export default App;
-1

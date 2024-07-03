@@ -1,0 +1,44 @@
+.vacation_container{
+  display: flex;
+  flex-direction:row;
+  padding:100px 100px;
+  background: linear-gradient(#6A62B7,#D0CBFF,white );
+}
+.vacation_text{
+    width:100%;
+    margin: 50px 40px;
+}
+.vacation_title_h1{
+    font-size: 80px;
+    font-weight:bold;
+    text-shadow: 1px  2px grey;   
+}
+.vacation_p{
+    width: 100%;
+
+}
+.vacation_p p{
+    margin:50px 60px 50px 15px;
+    font-size: 36px;
+    text-shadow: 1px  2px grey;
+}
+.vacation_img{
+    width:50%;
+}
+.vacation_btn button{
+    width: 200px;
+    height: 100px;
+    color: white;
+    background:  #6A62B7;
+    border-radius: 20px;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+.vacation_btn button:hover{
+    background: #D0CBFF;
+    color:#6A62B7;
+    border: none;
+    
+}

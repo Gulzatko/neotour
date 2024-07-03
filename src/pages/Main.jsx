@@ -1,18 +1,17 @@
+
 import React from 'react';
-import{Vacation} from '../Components/Vacation';
-import {Discover} from '../Components/Discover';
-import {Recomended} from '../Components/Recomended';
+import Vacation from '../Components/Vacation';
 
-const Main =()=> {
 
-    return (
-      <div>
-        <Vacation/>
-         <Discover/>
-         <Recomended/>
-      </div>
-    )
+const Main=()=>{
+      return (
+       <div>
+          <Vacation/>
+         </div>
+    );
   }
+  export default Main;
 
 
-export default Main;
+
+

@@ -5,26 +5,31 @@ import {api} from "../api/api";
 const Discover=()=> {
 const [tours, setTour] = useState([]);
 
+const [isLoading, setIsLoading] = useState(false)
+const [isError, setIsError] = useState(false)
 useEffect(()=>{
-  
-  // const fetchData = async()=>{
-  //   try{
-  //     const {response} = await api.get(`/list-tours`);
-  //     setTour(response)
-    
-  //   } catch(error){
-  //      console.log("error", error)
-  //   }
-  // };
-  // fetchData();
-  axios
-   .get("https://muha-backender.org.kg/list-tours")
-   .then((res)=>{
-    console.log(res);
-    setTour(res.data)
-   })
-
+  const fetchData = async()=>{
+    try{
+      setIsLoading(true)
+      const res= await axios
+      .get("https://muha-backender.org.kg/list-tours/");
+      setTour(res.data)
+    } catch(error){
+      setIsError(true)
+       console.log("error", error)
+    }finally {
+      setIsLoading(false)
+      setIsError(false)
+    }
+  };
+  fetchData();
 },[])
+if(isLoading) {
+  return <>Загрузка...</>
+}
+if(isError) {
+  return <>Упс, произошла 500 ошибка...</>
+}
 
   return (
     <div>
@@ -43,7 +48,7 @@ useEffect(()=>{
         </ul>
 
         <div className="discover_sliders">
-          {tours.map((tour, index)=>(
+          {tours?.map((tour, index)=>(
             <>
              <div key={index} className="first_img">
                <img src={tour.thumbnail} className="slider_img"/>

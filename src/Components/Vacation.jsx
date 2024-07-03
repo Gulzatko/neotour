@@ -31,10 +31,10 @@ export default function Vacation() {
         <img src="./imgs/hero.svg" alt=""/>
       </div>
     </div>
-      <div>
-      <Discover ref={swiperRef}/>
-      </div>
+      <div ref={swiperRef}>
+      <Discover />
       <Recomended/>
+      </div>
 
      
       

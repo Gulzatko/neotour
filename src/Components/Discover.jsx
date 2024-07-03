@@ -3,20 +3,27 @@ import axios from "axios";
 import {api} from "../api/api";
 
 const Discover=()=> {
-const [tour, setTour] = useState([]);
+const [tours, setTour] = useState([]);
 
 useEffect(()=>{
   
-  const fetchData = async()=>{
-    try{
-      const {response} = await api.get(`list-tours`);
-      setTour(response)
+  // const fetchData = async()=>{
+  //   try{
+  //     const {response} = await api.get(`/list-tours`);
+  //     setTour(response)
     
-    } catch(error){
-       console.log("error", error)
-    }
-  };
-  fetchData();
+  //   } catch(error){
+  //      console.log("error", error)
+  //   }
+  // };
+  // fetchData();
+  axios
+   .get("https://muha-backender.org.kg/list-tours")
+   .then((res)=>{
+    console.log(res);
+    setTour(res.data)
+   })
+
 },[])
 
   return (
@@ -36,9 +43,11 @@ useEffect(()=>{
         </ul>
 
         <div className="discover_sliders">
-           <div className="first_img">
-               <img src="1" className="slider_img"/>
-                <h1>First Image</h1>
+          {tours.map((tour, index)=>(
+            <>
+             <div key={index} className="first_img">
+               <img src={tour.reviews.reviewer_photo} className="slider_img"/>
+                <h1>{tour.name}</h1>
             </div>
             <div className="first_img">
                <img src="2" className="slider_img"/>
@@ -48,6 +57,13 @@ useEffect(()=>{
               <img src="3" className="slider_img"/>
               <h1>Third Image</h1>
             </div>
+            
+            </>
+            
+          ))
+
+          }
+          
          </div>
 
     </div>

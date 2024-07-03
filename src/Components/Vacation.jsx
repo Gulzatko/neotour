@@ -35,11 +35,7 @@ export default function Vacation() {
       <Discover />
       <Recomended/>
       </div>
-
-     
-      
-
-    </>
+      </>
    
   );
 }

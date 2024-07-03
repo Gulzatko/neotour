@@ -46,7 +46,7 @@ useEffect(()=>{
           {tours.map((tour, index)=>(
             <>
              <div key={index} className="first_img">
-               <img src={tour.reviews.reviewer_photo} className="slider_img"/>
+               <img src={tour.thumbnail} className="slider_img"/>
                 <h1>{tour.name}</h1>
             </div>
             <div className="first_img">

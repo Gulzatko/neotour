@@ -2,16 +2,40 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { api } from "../api/api";
 import styles from './Discover.module.scss';
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { Navigation, Pagination } from 'swiper/modules';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+
+
+
 
 const Discover = () => {
   const [tours, setTour] = useState([]);
-  const [isLoading, setIsLoading] = useState(false)
-  const [isError, setIsError] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 3,
+    
+
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 2,
+     
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 1,
+      
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+     
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -55,44 +79,10 @@ const Discover = () => {
       </ul>
 
       <>
-        <Swiper
-          slidesPerView={1}
-          spaceBetween={10}
-          navigation={{
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          }}
-          pagination={{
-            "clickable": true,
-            el: '.swiper-pagination',
-            type: 'bullets'
-          }}
-
-          breakpoints={{
-            640: {
-              "slidesPerView": 3,
-              "spaceBetween": 5
-            },
-            768: {
-              "slidesPerView":3,
-              "spaceBetween": 5
-            },
-            1024: {
-              "slidesPerView": 3,
-              "spaceBetween": 5
-            },
-
-          }}
-          modules={[Pagination, Navigation]}
-          className="clientSwiper"
-        >
-       </Swiper>
       
-
-        <div className={styles.discover_sliders}>
+     <Carousel responsive={responsive} showDots={true}>
+       <div className={styles.discover_sliders}>
           {tours?.map((tour, index) => (
-
-            <SwiperSlide >
               <div key={index} className={styles.sliders_img}>
                 <div >
                   <div className={styles.swiper_name}>
@@ -104,14 +94,12 @@ const Discover = () => {
 
                 </div>
               </div>
-
-            </SwiperSlide >
-
-
-          ))
+       
+        ))
           }
         </div>
-      
+        </Carousel>
+       
       </>
     </div>
   )

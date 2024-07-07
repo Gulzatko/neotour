@@ -46,7 +46,8 @@
     padding:30px 10px;
 }
 .sliders_img{
-  margin-top:20px;  
+  margin:20px 20px;
+    
 }
 .swiper_img img:nth-child(1){
   width: 350px;
@@ -60,14 +61,19 @@
  z-index: 4;
  margin-top: 190px;
  width:320px;
+ background: transparent;
+ opacity: 0.6;
+ 
 }
 .swiper_name h1:nth-child(1){
    color:white;
+   position: relative;
 }
 .discover_sliders{
     display: flex;
     justify-content:center;
     align-items: center;
+  
     
     
 }

@@ -1,76 +1,118 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import {api} from "../api/api";
+import { api } from "../api/api";
+import styles from './Discover.module.scss';
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Navigation, Pagination } from 'swiper/modules';
 
-const Discover=()=> {
-const [tours, setTour] = useState([]);
+const Discover = () => {
+  const [tours, setTour] = useState([]);
+  const [isLoading, setIsLoading] = useState(false)
+  const [isError, setIsError] = useState(false)
 
-const [isLoading, setIsLoading] = useState(false)
-const [isError, setIsError] = useState(false)
-useEffect(()=>{
-  const fetchData = async()=>{
-    try{
-      setIsLoading(true)
-      const res= await axios
-      .get("https://muha-backender.org.kg/list-tours/");
-      setTour(res.data)
-    } catch(error){
-      setIsError(true)
-       console.log("error", error)
-    }finally {
-      setIsLoading(false)
-      setIsError(false)
-    }
-  };
-  fetchData();
-},[])
-if(isLoading) {
-  return <>Загрузка...</>
-}
-if(isError) {
-  return <>Упс, произошла 500 ошибка...</>
-}
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true)
+        const res = await axios
+          .get("https://muha-backender.org.kg/list-tours/");
+        setTour(res.data);
+      } catch (error) {
+        setIsError(true)
+        console.log("error", error)
+      } finally {
+        setIsLoading(false)
+        setIsError(false)
+      }
+    };
+    fetchData();
+  }, [])
+  if (isLoading) {
+    return <>Загрузка...</>
+  }
+  if (isError) {
+    return <>Упс, произошла 500 ошибка...</>
+  }
 
   return (
-    <div>
-      <div className="discover_header">
-        <h1>Discover</h1>
-        <div className="discover_btns">
-          <button>right</button>
-          <button>left</button>
+    <div className={styles.discover}>
+      <div className={styles.discover_header}>
+        <h1 className={styles.discover_h1}>Discover</h1>
+        <div className={styles.discover_btns}>
+        <button className="swiper-button-prev">right</button>
+          <button className="swiper-button-next">left</button>
+      
         </div>
       </div>
-        <ul className="Categories">
-            <li><a href="">Popular</a></li>
-            <li><a href="">Featured</a></li>
-            <li><a href="">Most Visited</a></li>
-            <li><a href="">Europe</a></li>
-        </ul>
+      <ul className={styles.categories}>
+        <li className={styles.discover_li}><a href="">Popular</a></li>
+        <li className={styles.discover_li}><a href="">Featured</a></li>
+        <li className={styles.discover_li}><a href="">Most Visited</a></li>
+        <li className={styles.discover_li}><a href="">Europe</a></li>
+      </ul>
 
-        <div className="discover_sliders">
-          {tours?.map((tour, index)=>(
-            <>
-             <div key={index} className="first_img">
-               <img src={tour.thumbnail} className="slider_img"/>
-                <h1>{tour.name}</h1>
-            </div>
-            <div className="first_img">
-               <img src="2" className="slider_img"/>
-               <h1>Second Image</h1>
-            </div>
-           <div className="first_img">
-              <img src="3" className="slider_img"/>
-              <h1>Third Image</h1>
-            </div>
-            
-            </>
-            
+      <>
+        <Swiper
+          slidesPerView={1}
+          spaceBetween={10}
+          navigation={{
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          }}
+          pagination={{
+            "clickable": true,
+            el: '.swiper-pagination',
+            type: 'bullets'
+          }}
+
+          breakpoints={{
+            640: {
+              "slidesPerView": 3,
+              "spaceBetween": 5
+            },
+            768: {
+              "slidesPerView":3,
+              "spaceBetween": 5
+            },
+            1024: {
+              "slidesPerView": 3,
+              "spaceBetween": 5
+            },
+
+          }}
+          modules={[Pagination, Navigation]}
+          className="clientSwiper"
+        >
+       </Swiper>
+      
+
+        <div className={styles.discover_sliders}>
+          {tours?.map((tour, index) => (
+
+            <SwiperSlide >
+              <div key={index} className={styles.sliders_img}>
+                <div >
+                  <div className={styles.swiper_name}>
+                    <h1>{tour.name}</h1>
+                  </div>
+                  <div className={styles.swiper_img}>
+                    <img src={tour.thumbnail} />
+                  </div>
+
+                </div>
+              </div>
+
+            </SwiperSlide >
+
+
           ))
-
           }
-          
-         </div>
-
+        </div>
+      
+      </>
     </div>
   )
 }

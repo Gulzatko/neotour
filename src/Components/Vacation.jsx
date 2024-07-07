@@ -1,5 +1,5 @@
  import React,{useRef} from "react";
- import styles from "../styles/Vacation.module.scss";
+ import styles from "./Vacation.module.scss";
  import Discover from './Discover';
 import Recomended from './Recomended';
 
@@ -32,8 +32,8 @@ export default function Vacation() {
       </div>
     </div>
       <div ref={swiperRef}>
-      <Discover />
-      <Recomended/>
+       <Discover />
+        <Recomended/>
       </div>
       </>
    

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate} from 'react-router-dom';
-
+import {useParams, useNavigate} from 'react-router-dom';
+import Modal from '../Components/Modal'
 
 export default function Details() {
   const {id} = useParams();
@@ -36,7 +36,7 @@ export default function Details() {
       </div>
 
        <div className="booking">
-
+         <Modal/>
        </div>
        <div className="goBack_btn">
         <button onClick={goBack}>Go back </button>

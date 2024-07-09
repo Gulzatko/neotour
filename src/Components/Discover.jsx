@@ -4,6 +4,7 @@ import { api } from "../api/api";
 import styles from './Discover.module.scss';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import {Link, useParams} from 'react-router-dom'
 
 
 
@@ -12,6 +13,7 @@ const Discover = () => {
   const [tours, setTour] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  // const {id} = useParams();
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -22,7 +24,7 @@ const Discover = () => {
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 2,
+      items: 3,
      
     },
     tablet: {
@@ -82,21 +84,156 @@ const Discover = () => {
       
      <Carousel responsive={responsive} showDots={true}>
        <div className={styles.discover_sliders}>
-          {tours?.map((tour, index) => (
-              <div key={index} className={styles.sliders_img}>
+          {/* {tours?.map((tour, index) => ( */}
+          <Link to="/id">
+              <div className={styles.sliders_img}>
                 <div >
                   <div className={styles.swiper_name}>
-                    <h1>{tour.name}</h1>
+                    <h1>Alta, Noorway</h1>
                   </div>
                   <div className={styles.swiper_img}>
-                    <img src={tour.thumbnail} />
+                    <img src="./imgs/Alta_Noorway.png" />
                   </div>
 
                 </div>
               </div>
+            </Link>
        
-        ))
-          }
+        {/* ))
+          } */}
+        </div>
+    
+        <div className={styles.discover_sliders}>
+          {/* {tours?.map((tour, index) => ( */}
+          <Link to="/id">
+              <div className={styles.sliders_img}>
+                <div >
+                  <div className={styles.swiper_name}>
+                    <h1>Montana</h1>
+                  </div>
+                  <div className={styles.swiper_img}>
+                    <img src="./imgs/Montana.png" />
+                  </div>
+
+                </div>
+              </div>
+              </Link>
+        {/* ))
+          } */}
+        </div>
+        <div className={styles.discover_sliders}>
+          {/* {tours?.map((tour, index) => ( */}
+          <Link to="/id">
+              <div className={styles.sliders_img}>
+                <div >
+                  <div className={styles.swiper_name}>
+                    <h1> Guiilin, China</h1>
+                  </div>
+                  <div className={styles.swiper_img}>
+                    <img src="./imgs/Guiilin_China.png" />
+                  </div>
+
+                </div>
+              </div>
+              </Link>
+       
+        {/* ))
+          } */}
+        </div>
+        <div className={styles.discover_sliders}>
+          {/* {tours?.map((tour, index) => ( */}
+          <Link to="/id">
+              <div className={styles.sliders_img}>
+                <div >
+                  <div className={styles.swiper_name}>
+                    <h1>Alta, Noorway</h1>
+                  </div>
+                  <div className={styles.swiper_img}>
+                    <img src="./imgs/Alta_Noorway.png" />
+                  </div>
+
+                </div>
+              </div>
+              </Link>
+       
+        {/* ))
+          } */}
+        </div>
+        <div className={styles.discover_sliders}>
+          {/* {tours?.map((tour, index) => ( */}
+          <Link to="/id">
+              <div className={styles.sliders_img}>
+                <div >
+                  <div className={styles.swiper_name}>
+                    <h1>Alta, Noorway</h1>
+                  </div>
+                  <div className={styles.swiper_img}>
+                    <img src="./imgs/Alta_Noorway.png" />
+                  </div>
+
+                </div>
+              </div>
+              </Link>
+       
+        {/* ))
+          } */}
+        </div>
+        <div className={styles.discover_sliders}>
+          {/* {tours?.map((tour, index) => ( */}
+          <Link to="/id">
+              <div className={styles.sliders_img}>
+                <div >
+                  <div className={styles.swiper_name}>
+                    <h1>Montana</h1>
+                  </div>
+                  <div className={styles.swiper_img}>
+                    <img src="./imgs/Montana.png" />
+                  </div>
+
+                </div>
+              </div>
+              </Link>
+       
+        {/* ))
+          } */}
+        </div>
+        <div className={styles.discover_sliders}>
+          {/* {tours?.map((tour, index) => ( */}
+          <Link to="/id">
+              <div className={styles.sliders_img}>
+                <div >
+                  <div className={styles.swiper_name}>
+                    <h1> Guiilin, China</h1>
+                  </div>
+                  <div className={styles.swiper_img}>
+                    <img src="./imgs/Guiilin_China.png" />
+                  </div>
+
+                </div>
+              </div>
+            </Link>
+        {/* ))
+          } */}
+        </div>
+        <div className={styles.discover_sliders}>
+          {/* {tours?.map((tour, index) => ( */}
+          <Link to="/id">
+
+              <div className={styles.sliders_img}>
+                <div >
+                  <div className={styles.swiper_name}>
+                    <h1>Alta, Noorway</h1>
+                  </div>
+                  <div className={styles.swiper_img}>
+                    <img src="./imgs/Alta_Noorway.png" />
+                  </div>
+
+                </div>
+              </div>
+              </Link>
+       
+        {/* ))
+          } */}
         </div>
         </Carousel>
        

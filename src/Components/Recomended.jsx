@@ -148,63 +148,10 @@ export default function Recomended() {
 
             </div>
           </div>
-
           {/* ))
           } */}
         </div>
-        <div className={styles.discover_sliders}>
-          {/* {tours?.map((tour, index) => ( */}
-          <div className={styles.sliders_img}>
-            <div >
-              <div className={styles.swiper_name}>
-                <h1> Guiilin, China</h1>
-              </div>
-              <div className={styles.swiper_img}>
-                <img src="./imgs/Guiilin_China.png" />
-              </div>
-
-            </div>
-          </div>
-
-          {/* ))
-          } */}
-        </div>
-        <div className={styles.discover_sliders}>
-          {/* {tours?.map((tour, index) => ( */}
-          <div className={styles.sliders_img}>
-            <div >
-              <div className={styles.swiper_name}>
-                <h1>Alta, Noorway</h1>
-              </div>
-              <div className={styles.swiper_img}>
-                <img src="./imgs/Alta_Noorway.png" />
-              </div>
-
-            </div>
-          </div>
-
-          {/* ))
-          } */}
-        </div>
-        <div className={styles.discover_sliders}>
-          {/* {tours?.map((tour, index) => ( */}
-          <div className={styles.sliders_img}>
-            <div >
-              <div className={styles.swiper_name}>
-                <h1>Alta, Noorway</h1>
-              </div>
-              <div className={styles.swiper_img}>
-                <img src="./imgs/Alta_Noorway.png" />
-              </div>
-
-            </div>
-          </div>
-
-          {/* ))
-          } */}
-        </div>
-
-
+       
       </div>
     </div>
   )

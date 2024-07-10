@@ -1,0 +1,21 @@
+.detail{
+    margin:0;
+    padding:0;
+}
+.detail__img img{
+    width:100%;
+    height: 600px;
+    position:relative;
+  
+}
+.goBack_btn{
+    position: absolute;
+}
+.detail__text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 100px;
+    padding: 40px 40px;
+}

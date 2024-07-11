@@ -9,7 +9,7 @@ export default function Vacation() {
   const handleClick=(e)=>{
     e.preventDefault();
     swiperRef.current.scrollIntoView({ behavior:"smooth"});
-};
+  };
   return (
     <>
      <div className={styles.vacation_container}>

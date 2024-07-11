@@ -42,14 +42,8 @@ export default function Details(){
              <h2>Reviews</h2>
              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium, natus?</p>
             </div>
-
-         <div className={styles.booking}>
-            <Modal/>
-       </div>
-      
-
-    </div>
-    
+            <Modal className={styles.detail__booking}/>
+         </div> 
   </div>
   )
 }

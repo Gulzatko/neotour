@@ -29,7 +29,7 @@ export default function PopModal() {
 
   return (
     <div className={styles.modal}>
-       <Button className={styles.booking_btn} onClick={handleOpen} >Book your tour</Button>
+       <Button className={styles.booking__btn} onClick={handleOpen} >Book your tour</Button>
         <Modal 
          open={open}
           onClose={handleClose}
@@ -46,6 +46,7 @@ export default function PopModal() {
              of people for the reservation
           </Typography>
           <PhoneInput
+            className={styles.modal__input}
             country={'kg'}
             value={phone}
             onChange={phone => this.setState({ phone })}

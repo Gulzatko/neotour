@@ -28,8 +28,8 @@ export default function PopModal() {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Book your tour</Button>
-      <Modal
+       <Button onClick={handleOpen}>Book your tour</Button>
+        <Modal 
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"

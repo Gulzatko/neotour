@@ -4,20 +4,18 @@ import { NavLink } from 'react-router-dom';
 
 import styles from "./Recommended.module.scss"
 
-
 export default function Recomended() {
-
   const [recTours, setRecTour] = useState([]);
   const [isLoading, setIsLoading] = useState(false)
-  const [isError, setIsError] = useState(false)
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setIsLoading(true)
-        const res = await axios
+   const [isError, setIsError] = useState(false)
+ useEffect(() => {
+     const fetchData = async () => {
+       try {
+         setIsLoading(true)
+         const res = await axios
           .get("https://muha-backender.org.kg/filtered-tours/");
-        setRecTour(res.data);
-        console.log(res, "recommended")
+         setRecTour(res.data);
+         console.log(res, "recommended")
       } catch (error) {
         setIsError(true)
         console.log("error", error)

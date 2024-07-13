@@ -42,8 +42,9 @@ const Discover = () => {
       try {
         setIsLoading(true)
         const res = await axios
-          .get("https://muha-backender.org.kg/list-tours/");
-        setTour(res.data);
+          .get("https://berlin-backender.org.kg/tours-list/");
+          setTour(res.data.results);
+        console.log(res)
       } catch (error) {
         setIsError(true)
         console.log("error", error)
@@ -63,11 +64,11 @@ const Discover = () => {
 
   return (
     <div className={styles.discover}>
-      <div className={styles.discover_header}>
-        <h1 className={styles.discover_h1}>Discover</h1>
-        <div className={styles.discover_btns}>
-        <button className="swiper-button-prev">right</button>
-          <button className="swiper-button-next">left</button>
+         <div className={styles.discover_header}>
+             <h1 className={styles.discover_h1}>Discover</h1>
+              <div className={styles.discover_btns}>
+           <button className="swiper-button-prev">right</button>
+              <button className="swiper-button-next">left</button>
       
         </div>
       </div>
@@ -79,161 +80,31 @@ const Discover = () => {
       </ul>
 
       <>
-      
-     <Carousel responsive={responsive} showDots={true}>
-       <div className={styles.discover_sliders}>
-          {/* {tours?.map((tour, index) => ( */}
-          <Link to="/id">
-              <div className={styles.sliders_img}>
-                <div >
-                  <div className={styles.swiper_name}>
-                    <h1>Alta, Noorway</h1>
-                  </div>
-                  <div className={styles.swiper_img}>
-                    <img src="./imgs/Alta_Noorway.png" />
-                  </div>
+           <Carousel responsive={responsive} showDots={true}>
+        
+                {tours?.map((tour) => (
+                
+                   <div className={styles.discover_sliders}>
+                     <Link to="/id" >
+                        <div className={styles.sliders_img}>
+                           <div>
+                                 <div className={styles.swiper_name}>
+                                        <h1>{tour.title}</h1>
+                                   </div>
+                                  <div className={styles.swiper_img}>
+                                    <img src={tour.image}/>
+                                   </div>
 
-                </div>
-              </div>
-            </Link>
-       
-        {/* ))
-          } */}
-        </div>
-    
-        <div className={styles.discover_sliders}>
-          {/* {tours?.map((tour, index) => ( */}
-          <Link to="/id">
-              <div className={styles.sliders_img}>
-                <div >
-                  <div className={styles.swiper_name}>
-                    <h1>Montana</h1>
-                  </div>
-                  <div className={styles.swiper_img}>
-                    <img src="./imgs/Montana.png" />
-                  </div>
-
-                </div>
-              </div>
-              </Link>
-        {/* ))
-          } */}
-        </div>
-        <div className={styles.discover_sliders}>
-          {/* {tours?.map((tour, index) => ( */}
-          <Link to="/id">
-              <div className={styles.sliders_img}>
-                <div >
-                  <div className={styles.swiper_name}>
-                    <h1> Guiilin, China</h1>
-                  </div>
-                  <div className={styles.swiper_img}>
-                    <img src="./imgs/Guiilin_China.png" />
-                  </div>
-
-                </div>
-              </div>
-              </Link>
-       
-        {/* ))
-          } */}
-        </div>
-        <div className={styles.discover_sliders}>
-          {/* {tours?.map((tour, index) => ( */}
-          <Link to="/id">
-              <div className={styles.sliders_img}>
-                <div >
-                  <div className={styles.swiper_name}>
-                    <h1>Alta, Noorway</h1>
-                  </div>
-                  <div className={styles.swiper_img}>
-                    <img src="./imgs/Alta_Noorway.png" />
-                  </div>
-
-                </div>
-              </div>
-              </Link>
-       
-        {/* ))
-          } */}
-        </div>
-        <div className={styles.discover_sliders}>
-          {/* {tours?.map((tour, index) => ( */}
-          <Link to="/id">
-              <div className={styles.sliders_img}>
-                <div >
-                  <div className={styles.swiper_name}>
-                    <h1>Alta, Noorway</h1>
-                  </div>
-                  <div className={styles.swiper_img}>
-                    <img src="./imgs/Alta_Noorway.png" />
-                  </div>
-
-                </div>
-              </div>
-              </Link>
-       
-        {/* ))
-          } */}
-        </div>
-        <div className={styles.discover_sliders}>
-          {/* {tours?.map((tour, index) => ( */}
-          <Link to="/id">
-              <div className={styles.sliders_img}>
-                <div >
-                  <div className={styles.swiper_name}>
-                    <h1>Montana</h1>
-                  </div>
-                  <div className={styles.swiper_img}>
-                    <img src="./imgs/Montana.png" />
-                  </div>
-
-                </div>
-              </div>
-              </Link>
-       
-        {/* ))
-          } */}
-        </div>
-        <div className={styles.discover_sliders}>
-          {/* {tours?.map((tour, index) => ( */}
-          <Link to="/id">
-              <div className={styles.sliders_img}>
-                <div >
-                  <div className={styles.swiper_name}>
-                    <h1> Guiilin, China</h1>
-                  </div>
-                  <div className={styles.swiper_img}>
-                    <img src="./imgs/Guiilin_China.png" />
-                  </div>
-
-                </div>
-              </div>
-            </Link>
-        {/* ))
-          } */}
-        </div>
-        <div className={styles.discover_sliders}>
-          {/* {tours?.map((tour, index) => ( */}
-          <Link to="/id">
-
-              <div className={styles.sliders_img}>
-                <div >
-                  <div className={styles.swiper_name}>
-                    <h1>Alta, Noorway</h1>
-                  </div>
-                  <div className={styles.swiper_img}>
-                    <img src="./imgs/Alta_Noorway.png" />
-                  </div>
-
-                </div>
-              </div>
-              </Link>
-       
-        {/* ))
-          } */}
-        </div>
-        </Carousel>
+                            </div>
+                        </div>
+                       </Link>
+                    </div>
+                 
+                   )
+                   )
+                } 
+           </Carousel>
+           
        
       </>
     </div>

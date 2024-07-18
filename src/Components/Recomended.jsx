@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 import styles from "./Recommended.module.scss"
 
@@ -14,7 +14,7 @@ export default function Recomended() {
          setIsLoading(true)
          const res = await axios
           .get("https://berlin-backender.org.kg/recommend-tours/");
-         setRecTour(res.data);
+           setRecTour(res.data);
          console.log(res, "recommended")
       } catch (error) {
         setIsError(true)
@@ -39,8 +39,10 @@ export default function Recomended() {
         <h1 >Recommended</h1>
       </div>
       <div className={styles.recommended}>
-         <div className={styles.discover_sliders}>
+       
           {recTours?.map((tour, index) => (
+              <div className={styles.discover_sliders}>
+                  <Link to="/id">
                <div className={styles.sliders_img}>
                  <div >
                      <div className={styles.swiper_name}>
@@ -52,10 +54,12 @@ export default function Recomended() {
  
              </div>
            </div>
+           </Link>
+           </div>
               
             ))
            }
-          </div>
+       
        
           
 

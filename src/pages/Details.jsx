@@ -16,13 +16,13 @@ export default function Details(){
     try {
       setIsLoading(true)
       const res = await axios
-        .get(`https://berlin-backender.org.kg/tour-detail/1/?=${id}`);
+        .get("https://berlin-backender.org.kg/tour-detail/1/");
      
-        let trips = Object.keys(res.data);
-        
-        setDetailTrip(trips) 
+        let trips = Object.values(res.data);
+        console.log(trips);
+        setDetailTrip(trips);
+   
       
-       console.log(res.data)
     } catch (error) {
       setIsError(true)
       console.log("error", error)
@@ -43,17 +43,17 @@ if (isError) {
 
 return(
     <div >
-       {detailTrips?.map((trip,index)=>(
-         <div key={index} className={styles.detail}>
+      
+         <div  className={styles.detail}>
             <div className={styles.detail__img}>
-             <img src={trip.image} /> 
+             <img src={detailTrips[2]} /> 
             <div className={styles.goBack_btn}>
          <button  onClick={goBack}>Go back</button>
          </div>
            </div>
             <div className={styles.detail__text}>
              <div className={styles.detail__country}>
-                   <h1>{trip.title}</h1>
+                   <h1>{detailTrips[1]}</h1>
                  <h3>Country</h3>
                  </div>
  
@@ -61,12 +61,12 @@ return(
                <div className={styles.detail__title}>
                  <h1>title</h1>
                   </div>
-               <p>{trip.description}</p>
+               <p>{detailTrips[3]}</p>
                  </div>
                <div className={styles.details__reviews}>
                   <h2>Reviews</h2>
             
-                <p>{trip.reviews}</p>
+                <p>{}</p>
               
             </div>
            <Modal className={styles.detail__booking}/>
@@ -76,9 +76,7 @@ return(
        )
         
 
-       )
-
-       }
+       
       
 
   
